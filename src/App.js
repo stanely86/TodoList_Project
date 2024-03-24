@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'; 
+import React, { useState } from 'react'
+import ListSection from './listSection';
+import AddTask from './AddTask';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App(){
+  
+  const[task, setTask] =useState([]);
+  const [inputValue, setInputValue] = useState('') 
+  const handleInputChange = (event) =>{
+    setInputValue(event.target.value)
+  }
+  
+  return(
+
+    
+    <div>
+
+      <input className='inputTask'
+             value={inputValue}
+             onChange={handleInputChange}
+      />
+
+      <AddTask inputValue={inputValue} 
+               setInputValue={setInputValue} 
+               task={task} 
+               setTask={setTask}/>
+
+      <ListSection
+            task={task}    
+            setTask={setTask}
+            inputValue={inputValue}
+            setInputValue={setInputValue} 
+            handleInputChange={handleInputChange}        
+      />
+        
+      </div>
+    )
 }
-
-export default App;
