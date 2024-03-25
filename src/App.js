@@ -1,7 +1,7 @@
 import './App.css'; 
 import React, { useState } from 'react'
-import ListSection from './listSection';
-import AddTask from './AddTask';
+import ListSection from './hook/listSection';
+import AddTask from './hook/AddTask';
 
 export default function App(){
   
@@ -20,6 +20,8 @@ export default function App(){
              value={inputValue}
              onChange={handleInputChange}
       />
+      
+      <p>{task.length} left to do</p>
 
       <AddTask inputValue={inputValue} 
                setInputValue={setInputValue} 
