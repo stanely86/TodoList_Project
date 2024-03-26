@@ -30,7 +30,7 @@ export default function ListSection(props){
         <ul>
           {task.map((index) => (
             <li key={index.id}>
-              {index.value} 
+              
 
                {editingIndex === index.id ? (
                 <>
